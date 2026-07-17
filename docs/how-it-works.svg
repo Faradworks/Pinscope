@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#56637A"/>
+    </marker>
+  </defs>
+
+  <!-- panel -->
+  <rect x="0.5" y="0.5" width="1199" height="559" rx="16" fill="#0B0E14" stroke="#263041"/>
+
+  <!-- column headers -->
+  <text x="138" y="64" fill="#7D8590" font-size="11" letter-spacing="2.5" text-anchor="middle">INPUTS</text>
+  <text x="400" y="64" fill="#7D8590" font-size="11" letter-spacing="2.5" text-anchor="middle">PARSE &amp; EXTRACT</text>
+  <text x="724" y="64" fill="#7D8590" font-size="11" letter-spacing="2.5" text-anchor="middle">REVIEW</text>
+  <text x="1050" y="64" fill="#7D8590" font-size="11" letter-spacing="2.5" text-anchor="middle">REPORT</text>
+
+  <!-- input chips -->
+  <g>
+    <rect x="48" y="88" width="180" height="52" rx="9" fill="#111725" stroke="#2C3850"/>
+    <text x="66" y="110" fill="#E6EDF3" font-size="14" font-weight="600">netlist</text>
+    <text x="66" y="128" fill="#9BA7B4" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">.asc · .edn</text>
+
+    <rect x="48" y="156" width="180" height="52" rx="9" fill="#111725" stroke="#2C3850"/>
+    <text x="66" y="178" fill="#E6EDF3" font-size="14" font-weight="600">BOM</text>
+    <text x="66" y="196" fill="#9BA7B4" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">.csv · .xlsx</text>
+
+    <rect x="48" y="300" width="180" height="52" rx="9" fill="#111725" stroke="#2C3850"/>
+    <text x="66" y="322" fill="#E6EDF3" font-size="14" font-weight="600">datasheets</text>
+    <text x="66" y="340" fill="#9BA7B4" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">.pdf</text>
+  </g>
+
+  <!-- design graph box (deterministic / blue) -->
+  <g>
+    <rect x="300" y="88" width="200" height="106" rx="10" fill="#0E1626" stroke="#3B82F6"/>
+    <text x="318" y="116" fill="#E6EDF3" font-size="15" font-weight="600">design graph</text>
+    <text x="318" y="140" fill="#9BA7B4" font-size="12">components ⇄ nets,</text>
+    <text x="318" y="157" fill="#9BA7B4" font-size="12">every pin resolvable,</text>
+    <text x="318" y="174" fill="#9BA7B4" font-size="12">queryable</text>
+  </g>
+
+  <!-- extraction box (model / violet) -->
+  <g>
+    <rect x="300" y="272" width="200" height="124" rx="10" fill="#131126" stroke="#A78BFA"/>
+    <text x="318" y="300" fill="#E6EDF3" font-size="15" font-weight="600">pin tables + specs</text>
+    <text x="318" y="324" fill="#9BA7B4" font-size="12">PDFs page-trimmed,</text>
+    <text x="318" y="341" fill="#9BA7B4" font-size="12">read once per part,</text>
+    <text x="318" y="358" fill="#9BA7B4" font-size="12">cached in a shared</text>
+    <text x="318" y="375" fill="#9BA7B4" font-size="12">library</text>
+  </g>
+
+  <!-- review box (model / violet) -->
+  <g>
+    <rect x="584" y="88" width="280" height="308" rx="10" fill="#131126" stroke="#A78BFA"/>
+    <text x="604" y="118" fill="#E6EDF3" font-size="15" font-weight="600">per-IC review</text>
+    <text x="604" y="144" fill="#9BA7B4" font-size="12">The model reads the trimmed</text>
+    <text x="604" y="161" fill="#9BA7B4" font-size="12">datasheet next to that IC's circuit</text>
+    <text x="604" y="178" fill="#9BA7B4" font-size="12">neighborhood, and checks it against</text>
+    <text x="604" y="195" fill="#9BA7B4" font-size="12">the reference application, pin</text>
+    <text x="604" y="212" fill="#9BA7B4" font-size="12">functions and abs-max ratings.</text>
+
+    <text x="604" y="244" fill="#7D8590" font-size="10.5" letter-spacing="1.5">TOOLS</text>
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#C9B8F5">
+      <rect x="604" y="254" width="112" height="22" rx="5" fill="#1B1730" stroke="#3D3560"/>
+      <text x="612" y="269">get_pintable</text>
+      <rect x="724" y="254" width="120" height="22" rx="5" fill="#1B1730" stroke="#3D3560"/>
+      <text x="732" y="269">get_net_for_pin</text>
+      <rect x="604" y="282" width="196" height="22" rx="5" fill="#1B1730" stroke="#3D3560"/>
+      <text x="612" y="297">find_connected_components</text>
+      <rect x="604" y="310" width="176" height="22" rx="5" fill="#1B1730" stroke="#3D3560"/>
+      <text x="612" y="325">get_datasheet_excerpt</text>
+    </g>
+    <text x="604" y="356" fill="#9BA7B4" font-size="11.5">One IC per pass — a bad response</text>
+    <text x="604" y="372" fill="#9BA7B4" font-size="11.5">skips that part, never the run.</text>
+  </g>
+
+  <!-- findings box -->
+  <g>
+    <rect x="948" y="88" width="204" height="130" rx="10" fill="#131126" stroke="#A78BFA"/>
+    <text x="966" y="116" fill="#E6EDF3" font-size="15" font-weight="600">findings</text>
+    <text x="966" y="140" fill="#9BA7B4" font-size="12">severity, reasoning,</text>
+    <text x="966" y="157" fill="#9BA7B4" font-size="12">suggested fix — each</text>
+    <text x="966" y="174" fill="#9BA7B4" font-size="12">cited to the datasheet</text>
+    <text x="966" y="191" fill="#9BA7B4" font-size="12">page it came from</text>
+  </g>
+
+  <!-- deterministic outputs box -->
+  <g>
+    <rect x="948" y="430" width="204" height="90" rx="10" fill="#0E1626" stroke="#3B82F6"/>
+    <text x="966" y="458" fill="#E6EDF3" font-size="15" font-weight="600">computed, no model</text>
+    <text x="966" y="482" fill="#9BA7B4" font-size="12">capacitor derating table,</text>
+    <text x="966" y="499" fill="#9BA7B4" font-size="12">BOM roll-up</text>
+  </g>
+
+  <!-- arrows -->
+  <g stroke="#56637A" stroke-width="1.5" fill="none">
+    <!-- netlist + BOM -> graph -->
+    <path d="M 228 114 C 262 114, 264 122, 296 128" marker-end="url(#arrow)"/>
+    <path d="M 228 182 C 262 182, 264 162, 296 152" marker-end="url(#arrow)"/>
+    <!-- datasheets -> extraction -->
+    <path d="M 228 326 C 254 326, 262 330, 296 332" marker-end="url(#arrow)"/>
+    <!-- graph -> review -->
+    <path d="M 500 140 C 540 140, 542 150, 580 156" marker-end="url(#arrow)"/>
+    <!-- extraction -> review -->
+    <path d="M 500 332 C 540 332, 542 326, 580 322" marker-end="url(#arrow)"/>
+    <!-- review -> findings -->
+    <path d="M 864 152 C 906 152, 906 152, 944 152" marker-end="url(#arrow)"/>
+    <!-- graph -> deterministic outputs (bypasses review) -->
+    <path d="M 460 194 C 460 240, 542 216, 542 300 L 542 448 C 542 474, 560 475, 600 475 L 900 475 C 924 475, 926 475, 944 475" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- bypass label -->
+  <text x="560" y="464" fill="#7D8590" font-size="10.5" font-style="italic">straight from the graph</text>
+
+  <!-- legend -->
+  <g>
+    <rect x="48" y="500" width="12" height="12" rx="3" fill="#0E1626" stroke="#3B82F6"/>
+    <text x="68" y="510" fill="#9BA7B4" font-size="12">deterministic</text>
+    <rect x="162" y="500" width="12" height="12" rx="3" fill="#131126" stroke="#A78BFA"/>
+    <text x="182" y="510" fill="#9BA7B4" font-size="12">model-assisted</text>
+  </g>
+</svg>

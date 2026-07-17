@@ -14,6 +14,10 @@ The reason it exists: ERC passes boards that don't work. Your EDA tool has no id
 
 ## How it works
 
+<p align="center">
+  <img src="docs/how-it-works.svg" width="920" alt="Pipeline: the netlist and BOM are parsed into a design graph; datasheet PDFs are extracted into pin tables and specs; a per-IC review reads both and files findings cited to datasheet pages; the derating table and BOM roll-up are computed straight from the graph, no model involved.">
+</p>
+
 1. **Parse** the BOM (CSV/XLSX) and netlist (PADS-PCB `.asc` or EDIF 2.0.0 `.edn` — exportable from KiCad, Altium, OrCAD, Allegro, Xpedition, EasyEDA, Eagle) into a queryable bipartite graph of components and nets.
 2. **Extract** pin tables and specs from the PDFs. Large datasheets are trimmed to the relevant pages first, and every extraction is cached in a shared library, so a given part number is only ever processed once.
 3. **Review** each IC in isolation. The model gets the trimmed datasheet plus that IC's circuit neighborhood, can query the graph (`find_connected_components`, `get_net_for_pin`, `get_pintable`) and pull pages from a *connected* part's datasheet when a finding spans an interface. It files findings with severity, reasoning, and page citations.
